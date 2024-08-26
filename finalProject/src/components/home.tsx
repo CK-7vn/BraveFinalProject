@@ -44,7 +44,7 @@ export default function Home() {
         Interested in learning how to navigate this new landscape and earn your degree efficiently?
       </p>
       <Link to="/options" className="text-xl font-semibold text-blue-600 hover:underline">
-        Learn the approach!
+        Learn the approach
       </Link>
     </div>
   );

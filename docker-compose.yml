@@ -3,10 +3,10 @@ services:
     build:
       context: finalProject
       dockerfile: Dockerfile
-    ports:
-      - "5173:5173"
-    environment:
-      - OLLAMA_API_BASE_URL=http://ollama:11434
+    ports:
+      - "5173:5173"
+    environment:
+      - OLLAMA_API_BASE_URL=http://ollama:11434
   ollama:
     image: ollama/ollama:latest
     ports:
