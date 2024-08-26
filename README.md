@@ -40,9 +40,9 @@ git clone https:github.com/CK-7vn/BraveFinalProject
 yarn dev
  ```
 # Note: 
-You must use a docker exec command to pull the llama3 model in or else you will not be able to use the chat feature 
-Vite serves page on port 5173, if you run "yarn dev" you will have to enter the page through localhost:5173.
-If you run docker compose, you will need to run directly through localhost, without the port extension, as Nginx serves as a reverse proxy to
+- You must use a docker exec command to pull the llama3 model in or else you will not be able to use the chat feature 
+- Vite serves page on port 5173, if you run "yarn dev" you will have to enter the page through localhost:5173.
+- If you run docker compose, you will need to run directly through localhost, without the port extension, as Nginx serves as a reverse proxy to
 direct traffic to the respective places.
 
 
