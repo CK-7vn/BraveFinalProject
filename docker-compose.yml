@@ -9,7 +9,7 @@ services:
       - OLLAMA_API_BASE_URL=http://ollama:11434
   ollama:
     image: ollama/ollama:latest
-    ports:
+    ports:
       - "11434:11434"
     command: serve
     
