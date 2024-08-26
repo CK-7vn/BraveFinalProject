@@ -1,9 +1,10 @@
 # Brave Behind Bars Final Project #
 Dockerized React front end web page focusing on "Hacking College".
-In todays day and age, a degree is almost a requirement, yet to some people, obtaining a degree is almost unattainable, "Hacking college" is the idea, and realisation that you don't #HAVE# to go to a traditional
+# The purpose # 
+In todays day and age, a degree is almost a requirement, yet to some people, obtaining a degree is almost unattainable, "Hacking college" is the idea, and realisation that you don't **HAVE** to go to a traditional
 brick and mortar to obtain that much needed degree. This website gives a brief explanation, outline, and additional resources to help break the water on the idea of obtaining a degree, a degree just as valuable as any other degree, by utilizing non-traditional resources such as ACE credits, CLEP & DSST tests, and work experience to obtain the credits needed to get that degree. Mind you, this project still has a long way to go, I do have a vision that one day it may come to be a valuable resource to individuals trying to obtain their education through non-traditional pathways similary to how I did, but, that day is not today. 
 
-I can say, to anyone reading this that may be wondering how in the world their ever going to be able to find the time or money to go and get their education, I plead to you, look at degreeforum (The basic pathway in this application was used/referenced/pulled from degree forums wiki), look at the code on these pages, particularly the resources page (as it has links to the places you will need to go) and just go #DO IT!#. After a 6 month adventure, and 90 ish credits earned in that 6 months, I can promise you, absolutely promise you, that you won't regret it!
+I can say, to anyone reading this that may be wondering how in the world their ever going to be able to find the time or money to go and get their education, I plead to you, look at degreeforum (The basic pathway in this application was used/referenced/pulled from degree forums wiki), look at the code on these pages, particularly the resources page (as it has links to the places you will need to go) and just go **DO IT!**. After a 6 month adventure, and 90 ish credits earned in that 6 months, I can promise you, absolutely promise you, that you won't regret it!
 
 # Stack # 
 1. Vite
