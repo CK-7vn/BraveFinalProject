@@ -32,7 +32,7 @@ function ChatBox() {
       });
 
       let fullResponse = '';
-      let jsonBuffer = '';
+      let buffer = '';
       const reader = response.body!.getReader();
       const decoder = new TextDecoder();
 
@@ -41,12 +41,12 @@ function ChatBox() {
         if (done) break;
 
         const chunk = decoder.decode(value);
-        jsonBuffer += chunk;
+        buffer += chunk;
 
         let newlineIndex;
-        while ((newlineIndex = jsonBuffer.indexOf('\n')) !== -1) {
-          const line = jsonBuffer.slice(0, newlineIndex);
-          jsonBuffer = jsonBuffer.slice(newlineIndex + 1);
+        while ((newlineIndex = buffer.indexOf('\n')) !== -1) {
+          const line = buffer.slice(0, newlineIndex);
+          buffer = buffer.slice(newlineIndex + 1);
 
           try {
             const data = JSON.parse(line);
@@ -54,10 +54,11 @@ function ChatBox() {
               fullResponse += data.response;
               setMessages(prevMessages => {
                 const updatedMessages = [...prevMessages];
-                if (updatedMessages[updatedMessages.length - 1].sender === 'user') {
-                  updatedMessages.push({ text: fullResponse, sender: 'user' });
+                const aiMessage = updatedMessages.find(msg => msg.sender === 'ai');
+                if (aiMessage) {
+                  aiMessage.text = fullResponse;
                 } else {
-                  updatedMessages[updatedMessages.length - 1].text = fullResponse;
+                  updatedMessages.push({ text: fullResponse, sender: 'ai' });
                 }
                 return updatedMessages;
               });

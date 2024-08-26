@@ -1,5 +1,3 @@
-import React from 'react';
-
 export default function Accredit() {
   return (
     <div className="p-8">
@@ -9,7 +7,7 @@ export default function Accredit() {
         <p className="mb-4">Accreditation is a process of external quality review used to scrutinize colleges, universities and educational programs for quality assurance and quality improvement.</p>
       </section>
 
-      <section className="mb-8">
+      <section className="mb-8 pl-5 p-3 rounded-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-1 dark:hover:bg-gray-800">
         <h2 className="text-5xl font-semibold mb-7">Types of Accreditation</h2>
         <h3 className="text-xl font-semibold mb-2">Regional Accreditation</h3>
         <p className="mb-4">Considered the most prestigious and widely recognized form of accreditation. Credits from regionally accredited institutions are more easily transferable.</p>
@@ -17,7 +15,7 @@ export default function Accredit() {
         <p className="mb-4">Often focuses on specific types of colleges, like vocational or religious institutions. Credits may be less transferable to regionally accredited schools.</p>
       </section>
 
-      <section className="mb-8">
+      <section className="mb-8 pl-5 p-3 rounded-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-1 dark:hover:bg-gray-800">
         <h2 className="text-2xl font-semibold mb-4">Types of Credits</h2>
 
         <h3 className="text-xl font-semibold mb-2">ACE Credits</h3>

@@ -72,11 +72,11 @@
   width: 100%; 
   position: relative;
   height: 47px;
-  padding: 10px 50px 10px 15px;
-  border: none;
+  padding: 5px 40px 5px 10px;
+  /*border: none;*/
   resize: none;
   outline: none;
-  border: 1px solid #ccc;
+  border: 2px solid #ccc;
   color: #888;
   border-top: none;
   border-bottom-right-radius: 5px;
@@ -136,25 +136,27 @@
   width: 15%;
 }
 
-.cmMsgText {
-  background: white;
-  padding: 10px 15px;
-  color: #666;
-  max-width: 75%;
-  float: left;
-  margin-left: 10px; 
-  position: relative;
-  margin-bottom: 20px;
-  border-radius: 30px;
-}
-
-.chatMsg.self > .cmMsgText {  
+.chatMsg.self > .cmMsgText {
   float: right;
   margin-right: 10px;
   background: #5A5EB9;
   color: white;
 }
-
+.chatMsg.ai > .cmMsgText {
+  float: left;
+  margin-left: 10px;
+  background: #4CAF50;
+  color: white;
+}
+.cmMsgText {
+  background: white;
+  padding: 10px 15px;
+  color: #667;
+  max-width: 75%;
+  position: relative;
+  margin-bottom: 20px;
+  border-radius: 30px;
+}
 @media only screen and (max-width: 500px) {
   .chatLogs {
     height: 40vh;

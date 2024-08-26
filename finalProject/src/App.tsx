@@ -8,23 +8,24 @@ import Accredit from './components/accredit'
 import Facts from './components/facts'
 import Resources from './components/resources'
 import ChatBox from './components/chat/chat_box'
+import Bibliography from './components/bib'
 
 import { BrowserRouter, Router, Link, Route, Routes } from 'react-router-dom'
 
 
 function App() {
-  const [currentPage, setCurrentPage] = useState('home')
-  const [theme, setTheme] = useState('corporate');
+  const [theme, setTheme] = useState(() => localStorage.getItem('theme') || 'corporate');
 
   useEffect(() => {
+    document.documentElement.setAttribute('data-theme', theme);
     themeChange(false);
-  }, []);
+  }, [theme]);
 
   return (
     <>
       <BrowserRouter basename="/">
         <div data-theme={theme} className="">
-          <Navbar setCurrentPage={setCurrentPage} theme={theme} setTheme={setTheme} />
+          <Navbar setTheme={setTheme} theme={theme} />
         </div>
         <Routes>
           <Route path='/' element={<Home />} />
@@ -32,6 +33,7 @@ function App() {
           <Route path="/facts" element={<Facts />} />
           <Route path="/accredit" element={<Accredit />} />
           <Route path="/resources" element={<Resources />} />
+          <Route path="/bibliography" element={<Bibliography />} />
         </Routes>
       </BrowserRouter>
       <ChatBox />

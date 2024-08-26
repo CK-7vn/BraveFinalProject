@@ -1,4 +1,3 @@
-import React from "react";
 import { Link } from 'react-router-dom'
 
 
@@ -7,7 +6,7 @@ export default function Home() {
     <div className="mt-8">
       <h1 className="text-4xl font-bold mb-8">The Changing Landscape of Higher Education</h1>
 
-      <section className="mb-9">
+      <section className="mb-9 p-3 rounded-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-1 dark:hover:bg-gray-800">
         <h2 className="text-2xl font-semibold mb-4">How college has changed</h2>
         <p className="mb-4">
           Over the past few decades, the landscape of higher education has dramatically shifted.
@@ -16,7 +15,7 @@ export default function Home() {
           changing expectations.
         </p>
       </section>
-      <section className="mb-8">
+      <section className=" p-6 rounded-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-1 dark:hover:bg-gray-800">
         <h2 className="text-2xl font-semibold mb-4">The Growing Importance of a Degree</h2>
         <p className="mb-4">
           In today's competitive job market, a college degree has become more crucial than ever.
@@ -31,7 +30,7 @@ export default function Home() {
         </ul>
       </section>
 
-      <section className="mb-8">
+      <section className="p-3 rounded-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-1 dark:hover:bg-gray-800">
         <h2 className="text-2xl font-semibold mb-4">The Challenge: Balancing Cost and Benefit</h2>
         <p className="mb-4">
           While a degree is increasingly important, the rising costs of traditional college education
@@ -40,7 +39,7 @@ export default function Home() {
         </p>
       </section>
 
-      <p className="text-xl mb-4">
+      <p className="text-xl mb-4 p-3 rounded-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-1 dark:hover:bg-gray-800">
         Interested in learning how to navigate this new landscape and earn your degree efficiently?
       </p>
       <Link to="/options" className="text-xl font-semibold text-blue-600 hover:underline">

@@ -1,23 +1,27 @@
 import React, { useEffect, useState } from "react";
 import { themeChange } from "theme-change";
-import { BrowserRouter as Router, Link, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Link, Route, useNavigate } from 'react-router-dom'
 
 
 
 interface NavbarProps {
-  setCurrentPage: (page: string) => void;
-  theme: string;
   setTheme: React.Dispatch<React.SetStateAction<string>>;
+  theme: string;
+
 }
 
 const Navbar: React.FC<NavbarProps> = ({ setTheme, theme }) => {
   const toggleTheme = () => {
-    setTheme((prevTheme) => prevTheme === "corporate" ? "business" : "corporate");
+    const newTheme = theme === 'corporate' ? "business" : "corporate";
+    setTheme(newTheme);
+    // setTheme((prevTheme) => prevTheme === "corporate" ? "business" : "corporate");
+    localStorage.setItem('theme', newTheme);
   };
 
   useEffect(() => {
+    document.documentElement.setAttribute('data-theme', theme);
     themeChange(false);
-  }, []);
+  }, [theme]);
 
   const handleClick = (page: string) => (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
@@ -49,6 +53,7 @@ const Navbar: React.FC<NavbarProps> = ({ setTheme, theme }) => {
             <Link to="/options">Options</Link>
             <Link to="/accredit">What is Accreditation?</Link>
             <Link to="/facts">Facts</Link>
+            <Link to="/bibliography">Bibliography</Link>
           </ul>
         </div>
       </div>

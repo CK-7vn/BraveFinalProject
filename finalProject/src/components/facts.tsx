@@ -1,4 +1,3 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 
 export default function Facts() {
@@ -9,7 +8,7 @@ export default function Facts() {
       <h3 className="text-xl">That's an average of over 1.2 <p className="underline inline">million</p> dollars over a lifetime!</h3>
       <p className="text-xs">(APLU, 2024)</p>
       <br />
-      <section className="mb-8">
+      <section className="mb-8 p-3 rounded-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-1 dark:hover:bg-gray-800">
         <h2 className="text-2xl font-semibold mb-4">The Rising Cost of Traditional College</h2>
         <ul className="list-none pl-5 space-y-2">
           <li>Average cost of college in the US: $15,200 - $29,700  (Hanson, 2024)</li>
@@ -18,7 +17,7 @@ export default function Facts() {
         </ul>
       </section>
 
-      <section className="mb-8">
+      <section className="mb-8 p-3 rounded-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-1 dark:hover:bg-gray-800">
         <h2 className="text-2xl font-semibold mb-4">The Changing Job Market</h2>
         <ul className="list-none pl-5 space-y-2">
           <li>As of 2021 44% of jobs required more than a high school diploma, or GED (Whitford, 2023)</li>
@@ -27,7 +26,7 @@ export default function Facts() {
         </ul>
       </section>
 
-      <section className="mb-8">
+      <section className="mb-8 p-3 rounded-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-1 dark:hover:bg-gray-800">
         <h2 className="text-xl font-semibold mb-4">With those statistics in mind, one could conclude, it is almost imperative in this day and age that one get a secondary education after high school</h2>
         <p className="text-xl font-semibold mb-5">But! How? With obscene prices, and the rest of your life happening all around you, HOW can you make that leap, and find that success in getting a degree?</p>
         <p className="text-3xl font-bold">By Hacking College!</p>

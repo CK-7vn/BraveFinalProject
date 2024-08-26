@@ -2,7 +2,7 @@ export default function Resources() {
   return (
     <div className="p-8">
       <h1 className="text-4xl font-bold mb-8">Resources for Non-Traditional Degrees</h1>
-      <section className="mb-8">
+      <section className="mb-8 p-3 rounded-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-1 dark:hover:bg-gray-800">
         <h2 className="text-2xl font-semibold mb-4">Alternative Credit Providers</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div className="border p-4 rounded">
@@ -37,7 +37,7 @@ export default function Resources() {
           </div>
         </div>
       </section>
-      <section className="mb-8">
+      <section className="mb-8 p-3 rounded-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-1 dark:hover:bg-gray-800">
         <h2 className="text-2xl font-semibold mb-4">Forums and Information</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div className="border p-4 rounded">
@@ -57,7 +57,7 @@ export default function Resources() {
           </div>
         </div>
       </section>
-      <section className="mb-8">
+      <section className="mb-8 p-3 rounded-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-1 dark:hover:bg-gray-800">
         <h2 className="text-2xl font-semibold mb-4">Miscellaneous Resources</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div className="border p-4 rounded">
