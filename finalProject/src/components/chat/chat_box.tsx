@@ -1,8 +1,11 @@
 import { useState, useEffect, useRef } from 'react';
 import styles from './chat_box.module.css';
 
+
+let messageIdCounter = 0;
+
 function ChatBox() {
-  const [messages, setMessages] = useState<Array<{ text: string; sender: string }>>([]);
+  const [messages, setMessages] = useState<Array<{ id: number; text: string; sender: string }>>([]);
   const [input, setInput] = useState('');
   const [isOpen, setIsOpen] = useState(false);
   const chatLogsRef = useRef<HTMLDivElement>(null);
@@ -13,19 +16,30 @@ function ChatBox() {
     }
   }, [messages]);
 
+  const generateMessageId = () => {
+    return messageIdCounter++;
+  }
+
   const sendMessage = async () => {
     if (input.trim() === '') return;
 
-    const newMessage = { text: input, sender: 'self' };
-    setMessages(prevMessages => [...prevMessages, newMessage]);
-    setInput('');
+    const messageId = generateMessageId();
+    const newMessage = { id: messageId, text: input, sender: 'self' };
+
+    console.log('Before sending message: ', Array.from(messages.entries()));
+
+    setMessages(prevMessages => {
+      const updatedMessages = [...prevMessages, newMessage];
+      console.log("updated messages after self messages", updatedMessages)
+      return updatedMessages;
+    })
 
     try {
       const response = await fetch('/api/generate', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          model: "llama3",
+          model: "tinyllama",
           prompt: input,
           stream: true
         }),
@@ -52,22 +66,20 @@ function ChatBox() {
             const data = JSON.parse(line);
             if (data.response) {
               fullResponse += data.response;
-              setMessages(prevMessages => {
-                const updatedMessages = [...prevMessages];
-                const aiMessage = updatedMessages.find(msg => msg.sender === 'ai');
-                if (aiMessage) {
-                  aiMessage.text = fullResponse;
-                } else {
-                  updatedMessages.push({ text: fullResponse, sender: 'ai' });
-                }
-                return updatedMessages;
-              });
             }
             if (data.done) break;
           } catch (error) {
             console.error('Error parsing JSON:', error);
           }
+
         }
+      }
+      if (fullResponse) {
+        const aiMessageId = generateMessageId();
+        setMessages(prevMessages => {
+          const updatedMessages = [...prevMessages, { id: aiMessageId, text: fullResponse, sender: 'ai' }]
+          return updatedMessages;
+        })
       }
     } catch (error) {
       console.error('Error:', error);
