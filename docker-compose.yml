@@ -1,7 +1,7 @@
 services:
   frontend:
     build:
-      context: finalProject
+      context: frontend
       dockerfile: Dockerfile
     ports:
       - "5173:5173"
@@ -27,5 +27,28 @@ services:
      - ./nginx.conf:/etc/nginx/nginx.conf:ro
     depends_on:
      - frontend
+  postgres:
+    image: postgres:16
+    environment:
+     - POSTGRES_USER=dev 
+     - POSTGRES_PASSWORD=dev 
+     - POSTGRES_DB=final_project 
+    volumes:
+     - ./config:/docker-entrypoint-initdb.d
+    ports:
+     - "5432:5432"
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    volumes:
+     - ./backend:/app
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgres 
+    environment:
+      - DATABASE_URL=postgres://dev:dev@postgres:5432/final_project?sslmode=disable
 volumes:
   ollama_data:

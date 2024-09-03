@@ -1,16 +1,21 @@
 import React, { useEffect, useState } from "react";
 import { themeChange } from "theme-change";
 import { BrowserRouter as Router, Link, Route, useNavigate } from 'react-router-dom'
+import axios from "axios";
+import { useAuth } from "../hooks/useAuth";
 
 
 
 interface NavbarProps {
   setTheme: React.Dispatch<React.SetStateAction<string>>;
   theme: string;
-
+  isLoggedIn: boolean;
+  logout: () => Promise<void>;
 }
 
-const Navbar: React.FC<NavbarProps> = ({ setTheme, theme }) => {
+const Navbar: React.FC<NavbarProps> = ({ setTheme, theme, isLoggedIn, logout }) => {
+  const navigate = useNavigate();
+
   const toggleTheme = () => {
     const newTheme = theme === 'corporate' ? "business" : "corporate";
     setTheme(newTheme);
@@ -23,6 +28,11 @@ const Navbar: React.FC<NavbarProps> = ({ setTheme, theme }) => {
     themeChange(false);
   }, [theme]);
 
+
+  const handleLogout = async () => {
+    await logout();
+    navigate('/login')
+  }
   const handleClick = (page: string) => (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
   };
@@ -54,6 +64,14 @@ const Navbar: React.FC<NavbarProps> = ({ setTheme, theme }) => {
             <Link to="/accredit">What is Accreditation?</Link>
             <Link to="/facts">Facts</Link>
             <Link to="/bibliography">Bibliography</Link>
+            {!isLoggedIn ? (
+              <>
+                <Link to="/login">Login</Link>
+                <Link to="/register">Register</Link>
+              </>
+            ) : (
+              <li> <button className="btn btn-ghost" onClick={handleLogout}>Logout</button></li>
+            )}
           </ul>
         </div>
       </div>
@@ -72,6 +90,9 @@ const Navbar: React.FC<NavbarProps> = ({ setTheme, theme }) => {
             </svg>
           )}
         </button>
+        {isLoggedIn && (
+          <button className="btn btn-ghost" onClick={handleLogout}>Logout</button>
+        )}
       </div>
     </div>
   )
